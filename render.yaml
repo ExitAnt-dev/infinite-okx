@@ -1,0 +1,20 @@
+services:
+  - type: worker
+    name: exitant-okx-infinite
+    runtime: image
+    plan: starter
+    region: oregon
+    numInstances: 1
+    image:
+      url: docker.io/exitant/exitant-okx-infinite:latest
+    envVars:
+      - key: API_KEY
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: PASSPHRASE
+        sync: false
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false

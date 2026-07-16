@@ -55,30 +55,6 @@ You fill these in during deployment (nothing is pre-filled or stored here):
 - Render **background workers have no free plan** — choose Starter or higher.
 - After the deploy succeeds, send **`/start`** in Telegram to configure the bot.
 
-## Editing the Blueprint
-
-`render.yaml` defines the service. To change it (for example, a different image
-tag), edit the file and push — Render automatically re-syncs any service created
-from this Blueprint:
-
-```bash
-git add render.yaml
-git commit -m "update blueprint"
-git push
-```
-
-### `render.yaml` fields
-
-| Field | Meaning |
-|---|---|
-| `type: worker` | Background worker (no public URL). |
-| `runtime: image` | Deploy a prebuilt Docker image instead of building from source. |
-| `image.url` | The Docker Hub image and tag to run. |
-| `plan` | Render instance size (`starter` and up; no free tier for workers). |
-| `region` | Render region (`oregon` = US West). |
-| `numInstances` | Must stay `1` (Telegram single-poller requirement). |
-| `envVars … sync: false` | Secrets you supply at deploy time; not stored in git. |
-
 ---
 
 Blueprint spec: <https://render.com/docs/blueprint-spec> ·
